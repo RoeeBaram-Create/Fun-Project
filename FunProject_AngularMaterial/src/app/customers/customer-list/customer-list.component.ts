@@ -102,9 +102,10 @@ export class CustomerListComponent implements OnInit {
     .afterClosed().subscribe(res=>{
       if(res)
       {
-        this.service.deleteCustomer(costomerId);
-        this.notificationService.warn('! Deleted successfully');
-        this.router.navigate(['/customers']);
+        this.service.deleteCustomer(costomerId).subscribe(()=>{
+          this.notificationService.warn('! Deleted successfully');
+          this.router.navigate(['/customers']);
+        });
       }
     });
   }

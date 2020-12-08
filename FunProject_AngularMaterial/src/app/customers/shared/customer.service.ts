@@ -62,7 +62,7 @@ export class CustomerService {
   deleteCustomer(id?: number)
   {
     return this.http.delete(this.accessPointUrl+'/DeleteCustomer/'+id)
-    .pipe(catchError(this.handleError('deleteCustomer'))).subscribe();
+    .pipe(catchError(this.handleError('deleteCustomer')));
   }
 
   populateForm(customer:ICustomer)
